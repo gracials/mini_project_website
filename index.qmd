@@ -1,5 +1,8 @@
 ---
 title: "mini_project_website"
+project:
+  type: website
+  output-dir: docs
 ---
 
 This is a Quarto website.
