@@ -33,7 +33,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
@@ -64,7 +63,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -100,43 +99,36 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#bio" id="toc-bio" class="nav-link active" data-scroll-target="#bio">Bio</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-about-solana column-body">
+  <div class="about-entity">
+    <div class="entity-contents">
+      <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Gracia Larsen-Schmidt</h1>
 </div>
-
-
-
 <div class="quarto-title-meta">
-
-    
-  
-    
   </div>
-  
-
-</header>
-
-<section id="bio" class="level1">
-<h1>Bio</h1>
+</header> <div class="about-links">
+  <a href="https://github.com/gracials/mini_project_website" class="about-link" rel="" target="">
+     <span class="about-link-text">GitHub</span>
+  </a>
+  <a href="mailto:larsen12@stolaf.edu" class="about-link" rel="" target="">
+     <span class="about-link-text">Email</span>
+  </a>
+</div>
+      <div class="about-contents"><main class="content" id="quarto-document-content">
 <p>Hello! My name is Gracia Larsen-Schmidt. I am a senior at St.&nbsp;Olaf College majoring in English with concentrations in Statistics and Data Science, Race and Ethnic Studies, and Gender and Sexuality Studies. I run cross country and track collegiately and am the captain of my cross country team. I am a member and the president of the treble-voice a cappella group on campus: Agnes A Cappella. I work as a writing tutor and am student researcher working with a professor of anthropology. I am involved in statistics and data science research on milkweeds and local adaptation through St.&nbsp;Olaf’s Center for Interdisciplinary Research. Take a look around this website to learn more about the work I have done so far in Data Science 2!</p>
 
 
-</section>
-
-</main> <!-- /main -->
+</main></div>
+    </div>
+    <img src="quarto_pic.jpg" class="about-image
+  rounded " style="width: 15em;">
+  </div>
+</div>
+ <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -157,13 +149,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
