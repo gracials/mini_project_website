@@ -1,14 +1,9 @@
 ---
-title: "mini_project_website"
+title: "Gracia Larsen-Schmidt"
 project:
   type: website
   output-dir: docs
 ---
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-```{r}
-1 + 1
-```
+## Bio
+Hello! My name is Gracia Larsen-Schmidt. I am a senior at St. Olaf College majoring in English with concentrations in Statistics and Data Science, Race and Ethnic Studies, and Gender and Sexuality Studies. I run cross country and track collegiately and am the captain of my cross country team. I am a member and the president of the treble-voice a cappella group on campus: Agnes A Cappella. I work as a writing tutor and am student researcher working with a professor of anthropology. I am involved in statistics and data science research on milkweeds and local adaptation through St. Olaf's Center for Interdisciplinary Research. Take a look around this website to learn more about the work I have done so far in Data Science 2!
