@@ -8,7 +8,7 @@ about:
   image-width: 15em
   links:
     - text: GitHub
-      href: https://github.com/gracials/mini_project_website
+      href: https://github.com/gracials
     - text: LinkedIn
       href: https://www.linkedin.com/in/gracia-larsen-schmidt-737b18287/
     - text: Email

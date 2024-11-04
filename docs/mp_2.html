@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -104,11 +138,24 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#possible-tables-to-choose-from-on-the-boston-marathons-statistics-page" id="toc-possible-tables-to-choose-from-on-the-boston-marathons-statistics-page" class="nav-link active" data-scroll-target="#possible-tables-to-choose-from-on-the-boston-marathons-statistics-page">Possible tables to choose from on the Boston Marathon’s Statistics page</a></li>
+  <li><a href="#experimenting-with-cleaning-and-troubleshooting" id="toc-experimenting-with-cleaning-and-troubleshooting" class="nav-link" data-scroll-target="#experimenting-with-cleaning-and-troubleshooting">Experimenting with cleaning and troubleshooting</a></li>
+  <li><a href="#code-to-check-for-any-lists-with-less-than-5-elements" id="toc-code-to-check-for-any-lists-with-less-than-5-elements" class="nav-link" data-scroll-target="#code-to-check-for-any-lists-with-less-than-5-elements">Code to check for any lists with less than 5 elements</a></li>
+  <li><a href="#checking-the-table-for-the-error-years" id="toc-checking-the-table-for-the-error-years" class="nav-link" data-scroll-target="#checking-the-table-for-the-error-years">Checking the table for the error years</a></li>
+  <li><a href="#code-that-provided-error-with-purrrmap-function-that-prompted-the-error-fixing-above" id="toc-code-that-provided-error-with-purrrmap-function-that-prompted-the-error-fixing-above" class="nav-link" data-scroll-target="#code-that-provided-error-with-purrrmap-function-that-prompted-the-error-fixing-above">Code that provided error with purrr:map function that prompted the error fixing above</a></li>
+  <li><a href="#code-for-dealing-with-abnormal-years" id="toc-code-for-dealing-with-abnormal-years" class="nav-link" data-scroll-target="#code-for-dealing-with-abnormal-years">Code for dealing with abnormal years</a></li>
+  <li><a href="#now-the-issue-is-that-non-binary-was-not-an-option-until-2022-causing-errors-in-the-slice-and-across-functions-fixed-code-for-this" id="toc-now-the-issue-is-that-non-binary-was-not-an-option-until-2022-causing-errors-in-the-slice-and-across-functions-fixed-code-for-this" class="nav-link" data-scroll-target="#now-the-issue-is-that-non-binary-was-not-an-option-until-2022-causing-errors-in-the-slice-and-across-functions-fixed-code-for-this">Now the issue is that non-binary was not an option until 2022, causing errors in the slice and across functions – fixed code for this</a></li>
+  <li><a href="#final-tibble" id="toc-final-tibble" class="nav-link" data-scroll-target="#final-tibble">Final tibble</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -127,9 +174,318 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p><em>insert mini-project 2 code</em></p>
+<section id="possible-tables-to-choose-from-on-the-boston-marathons-statistics-page" class="level2">
+<h2 class="anchored" data-anchor-id="possible-tables-to-choose-from-on-the-boston-marathons-statistics-page">Possible tables to choose from on the <a href="http://registration.baa.org/2024/cf/Public/iframe_Statistics.htm">Boston Marathon’s Statistics page</a></h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+# A tibble: 0 × 5
+# ℹ 5 variables:  &lt;lgl&gt;,  &lt;lgl&gt;,  &lt;lgl&gt;,  &lt;lgl&gt;,  &lt;lgl&gt;
+
+[[2]]
+# A tibble: 0 × 1
+# ℹ 1 variable: 2024 BOSTON MARATHON STATISTICS &lt;lgl&gt;
+
+[[3]]
+# A tibble: 0 × 1
+# ℹ 1 variable:
+#   Links under Geographic Breakdown provide additional detail. &lt;lgl&gt;
+
+[[4]]
+# A tibble: 79 × 396
+   Category\r\n\t\t\t\t\r\n\t\t\t\t…¹ Category `Number Entered` `Number Started`
+   &lt;chr&gt;                              &lt;chr&gt;    &lt;chr&gt;            &lt;chr&gt;           
+ 1 "Category"                         "Number… "Number Started" "Number Finishe…
+ 2 ""                                 ""       ""               ""              
+ 3 "Runners"                          "Runner… "Runners"        "Runners"       
+ 4 "all"                              "29333"  "26495"          "25554"         
+ 5 "male"                             "16714"  "15017"          "14578"         
+ 6 "female"                           "12566"  "11429"          "10928"         
+ 7 "non-binary"                       "53"     "49"             "48"            
+ 8 "Wheelchairs"                      "Wheelc… "Wheelchairs"    "Wheelchairs"   
+ 9 "all"                              "49"     "48"             "47"            
+10 "male"                             "31"     "30"             "29"            
+# ℹ 69 more rows
+# ℹ abbreviated name:
+#   ¹​`Category\r\n\t\t\t\t\r\n\t\t\t\tNumber Entered\r\n\t\t\t\t\r\n\t\t\t\tNumber Started\r\n\t\t\t\t\r\n\t\t\t\tNumber Finished\r\n\t\t\t\t\r\n\t\t\t\tPercent Finished\r\n\t\t\t\t&nbsp;\r\n\t\t\t\t\tRunners\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\tall\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t29333\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t26495\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t25554\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 96.5%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tmale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t16714\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t15017\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t14578\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 97.1%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tfemale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t12566\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t11429\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t10928\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 95.6%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tnon-binary\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t53\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t49\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t48\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 98.0%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\tWheelchairs\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\tall\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t49\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t48\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t47\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 97.9%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tmale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t31\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t30\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t29\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 96.7%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tfemale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t18\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t18\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t18\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t100.0%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\tHandcycles\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\tall\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t45\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t41\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t39\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 95.1%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tmale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t36\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t32\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t30\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 93.8%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tfemale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t9\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t9\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t9\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t100.0%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\tRunners by Age Group\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t\t18-39 Age Group\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\tall\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t10798\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t9854\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t9510\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 96.5%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tmale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t5501\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t4986\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t4849\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 97.3%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tfemale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t5297\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t4868\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t4661\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 95.8%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\t40-44 Age Group\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\tall\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t4184\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t3727\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t3623\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 97.2%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tmale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t2310\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t2047\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t2009\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 98.1%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tfemale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t1874\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t1680\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t1614\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 96.1%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\t45-49 Age Group\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\tall\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t4546\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t4083\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t3973\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 97.3%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tmale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t2536\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t2271\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t2218\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 97.7%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tfemale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t2010\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t1812\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t1755\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 96.9%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\t50-54 Age Group\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\tall\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t3560\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t3217\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t3122\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 97.1%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tmale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t2193\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t1982\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t1935\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 97.6%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tfemale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t1367\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t1235\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t1187\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 96.1%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\t55-59 Age Group\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\tall\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t2776\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t2507\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t2406\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 96.0%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tmale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t1765\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t1573\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t1529\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 97.2%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tfemale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t1011\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t934\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t877\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 93.9%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\t60-64 Age Group\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\tall\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t2007\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t1806\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t1722\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 95.4%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tmale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t1353\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t1219\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t1173\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 96.2%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tfemale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t654\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t587\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t549\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 93.5%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\t65-69 Age Group\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\tall\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t984\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t882\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t833\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 94.4%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tmale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t729\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t654\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t617\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 94.3%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tfemale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t255\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t228\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t216\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 94.7%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\t70-74 Age Group\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\tall\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t335\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t295\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t256\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 86.8%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tmale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t254\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t223\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t195\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 87.4%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tfemale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t81\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t72\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t61\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 84.7%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\t75-79 Age Group\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\tall\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t72\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t62\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t50\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 80.7%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tmale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t59\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t50\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t43\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 86.0%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tfemale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t13\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t12\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t7\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 58.3%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\t80+ Age Group\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\tall\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t18\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t13\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t11\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 84.6%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tmale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t14\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t12\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t10\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 83.3%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tfemale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t4\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t1\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t1\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t100.0%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\tRunners by Sub Group\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t\tVisually Impaired\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\tall\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t3\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t3\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t3\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t100.0%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tmale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t3\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t3\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t3\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t100.0%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tfemale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t0\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t-\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t-\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t-\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\tMobility Impaired\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\tall\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t46\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t45\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t44\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 97.8%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tmale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t28\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t27\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t26\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 96.3%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tfemale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t18\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t18\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t18\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t100.0%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\tWheelchairs by Division\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t\tOpen\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\tall\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t46\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t45\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t44\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 97.8%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tmale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t28\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t27\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t26\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 96.3%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tfemale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t18\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t18\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t18\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t100.0%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\tQuad\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\tall\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t3\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t3\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t3\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t100.0%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tmale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t3\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t3\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t3\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t100.0%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tfemale\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t0\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t-\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t-\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t-\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\tTop of Page\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t\r\n\t\t\t\t\tGeographic Breakdown\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\tUS States and Territories Represented\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t56\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t56\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t56\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t100.0%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tCountries of Residence Represented\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t114\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t113\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t112\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 99.1%\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\tCountries of Citizenship Represented\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t128\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t125\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t123\r\n\t\t\t\t\r\n\t\t\t\t\r\n\t\t\t\t 98.4%`
+# ℹ 392 more variables: `Number Finished` &lt;chr&gt;, `Percent Finished` &lt;lgl&gt;,
+#   `` &lt;lgl&gt;, `` &lt;lgl&gt;, `` &lt;lgl&gt;, `` &lt;lgl&gt;, `` &lt;lgl&gt;, Runners &lt;lgl&gt;,
+#   Runners &lt;lgl&gt;, Runners &lt;lgl&gt;, Runners &lt;lgl&gt;, Runners &lt;lgl&gt;, all &lt;lgl&gt;,
+#   `29333` &lt;lgl&gt;, `26495` &lt;lgl&gt;, `25554` &lt;lgl&gt;, `96.5%` &lt;lgl&gt;, male &lt;lgl&gt;, …
+
+[[5]]
+# A tibble: 78 × 5
+   Category      `Number Entered` `Number Started` `Number Finished`
+   &lt;chr&gt;         &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;            
+ 1 ""            ""               ""               ""               
+ 2 "Runners"     "Runners"        "Runners"        "Runners"        
+ 3 "all"         "29333"          "26495"          "25554"          
+ 4 "male"        "16714"          "15017"          "14578"          
+ 5 "female"      "12566"          "11429"          "10928"          
+ 6 "non-binary"  "53"             "49"             "48"             
+ 7 "Wheelchairs" "Wheelchairs"    "Wheelchairs"    "Wheelchairs"    
+ 8 "all"         "49"             "48"             "47"             
+ 9 "male"        "31"             "30"             "29"             
+10 "female"      "18"             "18"             "18"             
+# ℹ 68 more rows
+# ℹ 1 more variable: `Percent Finished` &lt;chr&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 78 × 5
+   Category      `Number Entered` `Number Started` `Number Finished`
+   &lt;chr&gt;         &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;            
+ 1 ""            ""               ""               ""               
+ 2 "Runners"     "Runners"        "Runners"        "Runners"        
+ 3 "all"         "29333"          "26495"          "25554"          
+ 4 "male"        "16714"          "15017"          "14578"          
+ 5 "female"      "12566"          "11429"          "10928"          
+ 6 "non-binary"  "53"             "49"             "48"             
+ 7 "Wheelchairs" "Wheelchairs"    "Wheelchairs"    "Wheelchairs"    
+ 8 "all"         "49"             "48"             "47"             
+ 9 "male"        "31"             "30"             "29"             
+10 "female"      "18"             "18"             "18"             
+# ℹ 68 more rows
+# ℹ 1 more variable: `Percent Finished` &lt;chr&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 78 × 5
+   Category      `Number Entered` `Number Started` `Number Finished`
+   &lt;chr&gt;         &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;            
+ 1 ""            ""               ""               ""               
+ 2 "Runners"     "Runners"        "Runners"        "Runners"        
+ 3 "all"         "29333"          "26495"          "25554"          
+ 4 "male"        "16714"          "15017"          "14578"          
+ 5 "female"      "12566"          "11429"          "10928"          
+ 6 "non-binary"  "53"             "49"             "48"             
+ 7 "Wheelchairs" "Wheelchairs"    "Wheelchairs"    "Wheelchairs"    
+ 8 "all"         "49"             "48"             "47"             
+ 9 "male"        "31"             "30"             "29"             
+10 "female"      "18"             "18"             "18"             
+# ℹ 68 more rows
+# ℹ 1 more variable: `Percent Finished` &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="experimenting-with-cleaning-and-troubleshooting" class="level2">
+<h2 class="anchored" data-anchor-id="experimenting-with-cleaning-and-troubleshooting">Experimenting with cleaning and troubleshooting</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 5
+  category   number_entered number_started number_finished percent_finished
+  &lt;chr&gt;               &lt;dbl&gt;          &lt;dbl&gt;           &lt;dbl&gt;            &lt;dbl&gt;
+1 all                 29333          26495           25554             96.5
+2 male                16714          15017           14578             97.1
+3 female              12566          11429           10928             95.6
+4 non-binary             53             49              48             98  </code></pre>
+</div>
+</div>
+</section>
+<section id="code-to-check-for-any-lists-with-less-than-5-elements" class="level2">
+<h2 class="anchored" data-anchor-id="code-to-check-for-any-lists-with-less-than-5-elements">Code to check for any lists with less than 5 elements</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>check_year <span class="ot">&lt;-</span> <span class="cf">function</span>(years) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    problematic_years <span class="ot">&lt;-</span> <span class="fu">list</span>()  <span class="co"># List to store problematic years with fewer than 5 tables</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (year <span class="cf">in</span> years) {</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">Sys.sleep</span>(<span class="dv">2</span>)  <span class="co"># Pause to avoid overloading the server</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        url <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_c</span>(<span class="st">"http://registration.baa.org/"</span>, year, <span class="st">"/cf/Public/iframe_Statistics.htm"</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Start polite session and scrape the webpage</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        session <span class="ot">&lt;-</span> <span class="fu">bow</span>(url, <span class="at">force =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        stats <span class="ot">&lt;-</span> <span class="fu">scrape</span>(session) <span class="sc">|&gt;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>            <span class="fu">html_nodes</span>(<span class="at">css =</span> <span class="st">"table"</span>)  <span class="co"># Scrape all tables</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Check if there are exactly 5 tables</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="fu">length</span>(stats) <span class="sc">&lt;</span> <span class="dv">5</span>) {</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>            problematic_years[[<span class="fu">length</span>(problematic_years) <span class="sc">+</span> <span class="dv">1</span>]] <span class="ot">&lt;-</span> </span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>                <span class="fu">paste</span>(<span class="st">"Year"</span>, year, <span class="st">"doesn't have exactly 5 tables. Found"</span>, <span class="fu">length</span>(stats), <span class="st">"tables."</span>)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># If there are any problematic years, print them; otherwise, print a success message</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">length</span>(problematic_years) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>        <span class="fu">message</span>(<span class="st">"Issues found in the following years:"</span>)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        <span class="fu">print</span>(problematic_years)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>        <span class="fu">message</span>(<span class="st">"All years passed the table count check."</span>)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>year_test <span class="ot">&lt;-</span> <span class="dv">2014</span><span class="sc">:</span><span class="dv">2024</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>year_check <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map</span>(year_test, check_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Years 2014-2017 do not have 5 tables like 2018-2024.</li>
+<li>Additionally, 2020 did not have any data (likely because of COVID).</li>
+</ul>
+</section>
+<section id="checking-the-table-for-the-error-years" class="level2">
+<h2 class="anchored" data-anchor-id="checking-the-table-for-the-error-years">Checking the table for the error years</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>session <span class="ot">&lt;-</span> <span class="fu">bow</span>(<span class="st">"http://registration.baa.org/2014/cf/Public/iframe_Statistics.htm"</span>, <span class="at">force =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">scrape</span>(session) <span class="sc">|&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="at">css =</span> <span class="st">"table"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_table</span>(<span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">fill =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>running <span class="ot">&lt;-</span> result[[<span class="dv">4</span>]] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Table 4 is needed rather than table 5</li>
+</ul>
+</section>
+<section id="code-that-provided-error-with-purrrmap-function-that-prompted-the-error-fixing-above" class="level2">
+<h2 class="anchored" data-anchor-id="code-that-provided-error-with-purrrmap-function-that-prompted-the-error-fixing-above">Code that provided error with purrr:map function that prompted the error fixing above</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>by_year <span class="ot">&lt;-</span> <span class="cf">function</span>(year){</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Sys.sleep</span>(<span class="dv">2</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    url <span class="ot">&lt;-</span> <span class="fu">str_c</span>(<span class="st">"http://registration.baa.org/"</span>, year, <span class="st">"/cf/Public/iframe_Statistics.htm"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    session <span class="ot">&lt;-</span> <span class="fu">bow</span>(url, <span class="at">force =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    stats <span class="ot">&lt;-</span> <span class="fu">scrape</span>(session) <span class="sc">|&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">html_nodes</span>(<span class="at">css =</span> <span class="st">"table"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">html_table</span>(<span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">fill =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    stats[[<span class="dv">5</span>]] <span class="sc">|&gt;</span> </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">slice</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    janitor<span class="sc">::</span><span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, as.numeric),</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">percent_finished =</span> <span class="fu">parse_number</span>(percent_finished),</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>           <span class="at">year =</span> year)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>years <span class="ot">&lt;-</span> <span class="dv">2014</span><span class="sc">:</span><span class="dv">2024</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co">#boston_10yrs_data &lt;- purrr::map(years, check_year)</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co">#boston_10years &lt;- list_rbind(boston_10years_data)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="code-for-dealing-with-abnormal-years" class="level2">
+<h2 class="anchored" data-anchor-id="code-for-dealing-with-abnormal-years">Code for dealing with abnormal years</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>by_year2 <span class="ot">&lt;-</span> <span class="cf">function</span>(year) {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Sys.sleep</span>(<span class="dv">2</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Skip the year 2020</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (year <span class="sc">==</span> <span class="dv">2020</span>) {</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">message</span>(<span class="fu">paste</span>(<span class="st">"Skipping year"</span>, year))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(<span class="cn">NULL</span>)  <span class="co"># Exit the function</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    url <span class="ot">&lt;-</span> <span class="fu">str_c</span>(<span class="st">"http://registration.baa.org/"</span>, year, <span class="st">"/cf/Public/iframe_Statistics.htm"</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    session <span class="ot">&lt;-</span> <span class="fu">bow</span>(url, <span class="at">force =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    stats <span class="ot">&lt;-</span> <span class="fu">scrape</span>(session) <span class="sc">|&gt;</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        <span class="fu">html_nodes</span>(<span class="at">css =</span> <span class="st">"table"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>        <span class="fu">html_table</span>(<span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">fill =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select the appropriate table based on the year</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (year <span class="sc">&gt;=</span> <span class="dv">2014</span> <span class="sc">&amp;</span> year <span class="sc">&lt;=</span> <span class="dv">2017</span>) {</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>        selected_table <span class="ot">&lt;-</span> stats[[<span class="dv">4</span>]]  <span class="co"># Use the 4th table for 2014-2017</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>        selected_table <span class="ot">&lt;-</span> stats[[<span class="dv">5</span>]]  <span class="co"># Use the 5th table for all other years</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Process the selected table</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    selected_table <span class="sc">|&gt;</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>        dplyr<span class="sc">::</span><span class="fu">slice</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>        janitor<span class="sc">::</span><span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, as.numeric),</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>               <span class="at">percent_finished =</span> <span class="fu">parse_number</span>(percent_finished),</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>               <span class="at">year =</span> year)</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>years <span class="ot">&lt;-</span> <span class="dv">2014</span><span class="sc">:</span><span class="dv">2024</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="co">#boston_10yrs_data &lt;- purrr::map(years, by_year2)</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="co">#boston_10years &lt;- list_rbind(boston_10years_data)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="now-the-issue-is-that-non-binary-was-not-an-option-until-2022-causing-errors-in-the-slice-and-across-functions-fixed-code-for-this" class="level2">
+<h2 class="anchored" data-anchor-id="now-the-issue-is-that-non-binary-was-not-an-option-until-2022-causing-errors-in-the-slice-and-across-functions-fixed-code-for-this">Now the issue is that non-binary was not an option until 2022, causing errors in the slice and across functions – fixed code for this</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>by_year3 <span class="ot">&lt;-</span> <span class="cf">function</span>(year) {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Sys.sleep</span>(<span class="dv">2</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Skip the year 2020</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (year <span class="sc">==</span> <span class="dv">2020</span>) {</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">message</span>(<span class="fu">paste</span>(<span class="st">"Skipping year"</span>, year))</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(<span class="cn">NULL</span>)  <span class="co"># Exit the function</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    url <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_c</span>(<span class="st">"http://registration.baa.org/"</span>, year, <span class="st">"/cf/Public/iframe_Statistics.htm"</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    session <span class="ot">&lt;-</span> <span class="fu">bow</span>(url, <span class="at">force =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    stats <span class="ot">&lt;-</span> <span class="fu">scrape</span>(session) <span class="sc">|&gt;</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        <span class="fu">html_nodes</span>(<span class="at">css =</span> <span class="st">"table"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        <span class="fu">html_table</span>(<span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">fill =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select the appropriate table based on the year</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (year <span class="sc">&gt;=</span> <span class="dv">2014</span> <span class="sc">&amp;</span> year <span class="sc">&lt;=</span> <span class="dv">2017</span>) {</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>        selected_table <span class="ot">&lt;-</span> stats[[<span class="dv">4</span>]]  <span class="co"># Use the 4th table for 2014-2017</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>        selected_table <span class="ot">&lt;-</span> stats[[<span class="dv">5</span>]]  <span class="co"># Use the 5th table for other years</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Slice different rows based on the year range</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (year <span class="sc">&gt;=</span> <span class="dv">2014</span> <span class="sc">&amp;</span> year <span class="sc">&lt;=</span> <span class="dv">2022</span>) {</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>        sliced_table <span class="ot">&lt;-</span> selected_table <span class="sc">|&gt;</span> </span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>            dplyr<span class="sc">::</span><span class="fu">slice</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>))  <span class="co"># Slice rows 3 to 5 for 2014-2022</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>        sliced_table <span class="ot">&lt;-</span> selected_table <span class="sc">|&gt;</span> </span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>            dplyr<span class="sc">::</span><span class="fu">slice</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>))  <span class="co"># Slice rows 3 to 6 for other years</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Process the sliced table</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    sliced_table <span class="sc">|&gt;</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>        janitor<span class="sc">::</span><span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, as.numeric),</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>               <span class="at">percent_finished =</span> <span class="fu">parse_number</span>(percent_finished),</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>               <span class="at">year =</span> year)</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>years <span class="ot">&lt;-</span> <span class="dv">2014</span><span class="sc">:</span><span class="dv">2024</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>boston_10yrs_data <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map</span>(years, by_year3)</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>boston_10years <span class="ot">&lt;-</span> <span class="fu">list_rbind</span>(boston_10yrs_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="final-tibble" class="level1">
+<h1>Final tibble</h1>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 32 × 6
+   category number_entered number_started number_finished percent_finished  year
+   &lt;chr&gt;             &lt;dbl&gt;          &lt;dbl&gt;           &lt;dbl&gt;            &lt;dbl&gt; &lt;int&gt;
+ 1 all               35671          32458           31925             98.4  2014
+ 2 male              19579          17830           17582             98.6  2014
+ 3 female            16092          14628           14343             98.1  2014
+ 4 all               30251          27167           26598             97.9  2015
+ 5 male              16500          14859           14580             98.1  2015
+ 6 female            13751          12308           12018             97.6  2015
+ 7 all               30741          27488           26629             96.9  2016
+ 8 male              16629          14877           14463             97.2  2016
+ 9 female            14112          12611           12166             96.5  2016
+10 all               30074          27222           26400             97    2017
+11 male              16376          14842           14431             97.2  2017
+12 female            13698          12380           11969             96.7  2017
+13 all               29979          26954           25831             95.8  2018
+14 male              16587          14888           14203             95.4  2018
+15 female            13392          12066           11628             96.4  2018
+16 all               30234          27360           26657             97.4  2019
+17 male              16550          15012           14675             97.8  2019
+18 female            13684          12348           11982             97    2019
+19 all               18075          15648           15386             98.3  2021
+20 male               9365           8046            7942             98.7  2021
+21 female             8710           7602            7444             97.9  2021
+22 all               28506          25230           24834             98.4  2022
+23 male              16369          14429           14262             98.8  2022
+24 female            12137          10801           10572             97.9  2022
+25 all               30132          27092           26623             98.3  2023
+26 male              17195          15379           15177             98.7  2023
+27 female            12911          11689           11422             97.7  2023
+28 non-bin…             26             24              24            100    2023
+29 all               29333          26495           25554             96.5  2024
+30 male              16714          15017           14578             97.1  2024
+31 female            12566          11429           10928             95.6  2024
+32 non-bin…             53             49              48             98    2024</code></pre>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

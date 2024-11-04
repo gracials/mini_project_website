@@ -1,5 +1,212 @@
 ---
 title: "Boston Marathon Data Over Time"
+editor_options: 
+  chunk_output_type: console
 ---
 
-*insert mini-project 2 code*
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+
+library(tidyverse)
+library(stringr)
+library(rvest)
+library(polite)
+library(maps)
+library(viridis)
+library(htmltools)
+library(tibble)
+library(janitor)
+
+```
+
+## Possible tables to choose from on the [Boston Marathon's Statistics page](http://registration.baa.org/2024/cf/Public/iframe_Statistics.htm)
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+boston_marathon <- read_html("http://registration.baa.org/2024/cf/Public/iframe_Statistics.htm")
+
+boston <- html_nodes(boston_marathon, css = "table")
+html_table(boston, header = TRUE, fill = TRUE)  # find right table
+running <- html_table(boston, header = TRUE, fill = TRUE)[[5]]
+running
+
+# perform the steps above with the polite package
+session <- bow("http://registration.baa.org/2024/cf/Public/iframe_Statistics.htm", force = TRUE)
+
+result <- scrape(session) |>
+  html_nodes(css = "table") |>
+  html_table(header = TRUE, fill = TRUE)
+running <- result[[5]]
+running
+```
+
+## Experimenting with cleaning and troubleshooting
+
+```{r, echo = FALSE}
+running2 <- running[c(3, 4, 5, 6),] |>
+  clean_names() |>
+  mutate(across(.cols = number_entered:percent_finished, .fns = ~ parse_number(.)))
+running2
+```
+
+## Code to check for any lists with less than 5 elements
+
+```{r, eval = FALSE}
+check_year <- function(years) {
+    problematic_years <- list()  # List to store problematic years with fewer than 5 tables
+
+    for (year in years) {
+        Sys.sleep(2)  # Pause to avoid overloading the server
+        url <- stringr::str_c("http://registration.baa.org/", year, "/cf/Public/iframe_Statistics.htm")
+        
+        # Start polite session and scrape the webpage
+        session <- bow(url, force = TRUE)
+        stats <- scrape(session) |>
+            html_nodes(css = "table")  # Scrape all tables
+        
+        # Check if there are exactly 5 tables
+        if (length(stats) < 5) {
+            problematic_years[[length(problematic_years) + 1]] <- 
+                paste("Year", year, "doesn't have exactly 5 tables. Found", length(stats), "tables.")
+        }
+    }
+    
+    # If there are any problematic years, print them; otherwise, print a success message
+    if (length(problematic_years) > 0) {
+        message("Issues found in the following years:")
+        print(problematic_years)
+    } else {
+        message("All years passed the table count check.")
+    }
+}
+
+year_test <- 2014:2024
+year_check <- purrr::map(year_test, check_year)
+```
+-   Years 2014-2017 do not have 5 tables like 2018-2024.
+-   Additionally, 2020 did not have any data (likely because of COVID).
+
+## Checking the table for the error years
+```{r, message = FALSE, warning = FALSE}
+session <- bow("http://registration.baa.org/2014/cf/Public/iframe_Statistics.htm", force = TRUE)
+
+result <- scrape(session) |>
+  html_nodes(css = "table") |>
+  html_table(header = TRUE, fill = TRUE)
+running <- result[[4]] 
+```
+-   Table 4 is needed rather than table 5
+
+## Code that provided error with purrr:map function that prompted the error fixing above
+
+```{r}
+by_year <- function(year){
+    Sys.sleep(2)
+    url <- str_c("http://registration.baa.org/", year, "/cf/Public/iframe_Statistics.htm")
+    session <- bow(url, force = TRUE)
+    stats <- scrape(session) |>
+        html_nodes(css = "table") |>
+        html_table(header = TRUE, fill = TRUE)
+    stats[[5]] |> 
+    dplyr::slice(c(3, 4, 5, 6)) |>
+    janitor::clean_names() |>
+    mutate(across(2:4, as.numeric),
+           percent_finished = parse_number(percent_finished),
+           year = year)
+    }
+
+years <- 2014:2024
+#boston_10yrs_data <- purrr::map(years, check_year)
+#boston_10years <- list_rbind(boston_10years_data)
+```
+
+## Code for dealing with abnormal years
+
+```{r}
+by_year2 <- function(year) {
+    Sys.sleep(2)
+    
+    # Skip the year 2020
+    if (year == 2020) {
+        message(paste("Skipping year", year))
+        return(NULL)  # Exit the function
+    }
+    
+    url <- str_c("http://registration.baa.org/", year, "/cf/Public/iframe_Statistics.htm")
+    session <- bow(url, force = TRUE)
+    stats <- scrape(session) |>
+        html_nodes(css = "table") |>
+        html_table(header = TRUE, fill = TRUE)
+    
+    # Select the appropriate table based on the year
+    if (year >= 2014 & year <= 2017) {
+        selected_table <- stats[[4]]  # Use the 4th table for 2014-2017
+    } else {
+        selected_table <- stats[[5]]  # Use the 5th table for all other years
+    }
+    
+    # Process the selected table
+    selected_table |>
+        dplyr::slice(c(3, 4, 5, 6)) |>
+        janitor::clean_names() |>
+        mutate(across(2:4, as.numeric),
+               percent_finished = parse_number(percent_finished),
+               year = year)
+}
+
+years <- 2014:2024
+#boston_10yrs_data <- purrr::map(years, by_year2)
+#boston_10years <- list_rbind(boston_10years_data)
+```
+
+## Now the issue is that non-binary was not an option until 2022, causing errors in the slice and across functions -- fixed code for this
+
+```{r,message = FALSE}
+by_year3 <- function(year) {
+    Sys.sleep(2)
+    
+    # Skip the year 2020
+    if (year == 2020) {
+        message(paste("Skipping year", year))
+        return(NULL)  # Exit the function
+    }
+    
+    url <- stringr::str_c("http://registration.baa.org/", year, "/cf/Public/iframe_Statistics.htm")
+    session <- bow(url, force = TRUE)
+    stats <- scrape(session) |>
+        html_nodes(css = "table") |>
+        html_table(header = TRUE, fill = TRUE)
+    
+    # Select the appropriate table based on the year
+    if (year >= 2014 & year <= 2017) {
+        selected_table <- stats[[4]]  # Use the 4th table for 2014-2017
+    } else {
+        selected_table <- stats[[5]]  # Use the 5th table for other years
+    }
+    
+    # Slice different rows based on the year range
+    if (year >= 2014 & year <= 2022) {
+        sliced_table <- selected_table |> 
+            dplyr::slice(c(3, 4, 5))  # Slice rows 3 to 5 for 2014-2022
+    } else {
+        sliced_table <- selected_table |> 
+            dplyr::slice(c(3, 4, 5, 6))  # Slice rows 3 to 6 for other years
+    }
+    
+    # Process the sliced table
+    sliced_table |>
+        janitor::clean_names() |>
+        mutate(across(2:4, as.numeric),
+               percent_finished = parse_number(percent_finished),
+               year = year)
+}
+
+years <- 2014:2024
+boston_10yrs_data <- purrr::map(years, by_year3)
+boston_10years <- list_rbind(boston_10yrs_data)
+```
+
+# Final tibble
+
+```{r, echo = FALSE}
+print(boston_10years, n = Inf)
+```
