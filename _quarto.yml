@@ -8,12 +8,14 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - mp_1.qmd
-      - mp_2.qmd
+      - href: mp_1.qmd
+        text: Mapping C-Sections
+      - href: mp_2.qmd
+        text: Boston Marathon Over Time
 
 format:
   html:
-    theme: cosmo
+    theme: litera
     css: styles.css
     toc: true
     page-layout: full

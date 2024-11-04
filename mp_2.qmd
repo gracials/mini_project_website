@@ -1,5 +1,5 @@
 ---
-title: "Mini-Project 2"
+title: "Boston Marathon Data Over Time"
 ---
 
 *insert mini-project 2 code*

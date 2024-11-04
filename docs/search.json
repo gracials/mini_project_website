@@ -4,19 +4,19 @@
     "href": "index.html",
     "title": "Gracia Larsen-Schmidt",
     "section": "",
-    "text": "Hello! My name is Gracia Larsen-Schmidt. I am a senior at St. Olaf College majoring in English with concentrations in Statistics and Data Science, Race and Ethnic Studies, and Gender and Sexuality Studies. I run cross country and track collegiately and am the captain of my cross country team. I am a member and the president of Agnes A Cappella, the treble-voice a cappella group on campus. I work as a writing tutor and anthropology student researcher. I am currently involved in statistics and data science research on milkweeds and local adaptation through St. Olaf’s Center for Interdisciplinary Research.\nTake a look around this website to learn more about the work I have done so far in Data Science 2!"
+    "text": "Hello! My name is Gracia Larsen-Schmidt. I am a senior at St. Olaf College majoring in English with concentrations in Statistics and Data Science, Race and Ethnic Studies, and Gender and Sexuality Studies. I run cross country and track collegiately and am the captain of my cross country team. I am a member and the president of Agnes A Cappella, the treble-voice a cappella group on campus. I work as a writing tutor and anthropology student researcher, and I am currently involved in statistics research on local adaptation and milkweed through St. Olaf’s Center for Interdisciplinary Research.\nTake a look around this website to learn more about the work I have done so far in Data Science 2!"
   },
   {
     "objectID": "mp_1.html",
     "href": "mp_1.html",
-    "title": "Mini-Project 1",
+    "title": "Mapping U.S. Cesarian Delivery Data",
     "section": "",
-    "text": "insert mini-project 1 code"
+    "text": "The data for these visualizations can be found here on the U.S. Department of Health and Human Services’ Maternal and Infant Health page.\n\nAverage Percent Cesarian Deliveries By State 2020-2022 (static plot)\n\n\n\n\n\nThis graph is a map of the continental United States color coded with state-level data of the average percent of deliveries which were cesarean (c-sections) in the years 2020-2022, aggregated from county-level data. The average percent of deliveries which were cesarean varies from approximately 24% to 38%. The graph highlights that the South tends to have higher rates of cesarian deliveries, especially Louisiana and Mississippi, while the West and upper-western Midwest tend to have lower rates of cesarian sections.\n\n\nAverage Percent Cesarian Deliveries By State 2020-2022 (interactive plot)\n\n\n\n\n\n\n\n\nAverage County Urban-Rural Code by State (static plot)\n\n\n\n\n\nThis graph is a map of the continental US color-coded at the state-level by the mean county urban-rural code. The mean county urban-rural code ranges from 2 (most urban) to 6 (most rural). States on the east coast have the lowest urban-rural code, meaning that the average of state’s counties’ urban-rural codes is the most urban. States in the South and on the west coast are next-most urban. The states that are the most rural are North Dakota, South Dakota, Montana, and Wyoming.\n\n\nAverage County Urban-Rural Code by State (interactive plot)"
   },
   {
     "objectID": "mp_2.html",
     "href": "mp_2.html",
-    "title": "Mini-Project 2",
+    "title": "Boston Marathon Data Over Time",
     "section": "",
     "text": "insert mini-project 2 code"
   }
