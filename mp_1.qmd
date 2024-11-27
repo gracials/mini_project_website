@@ -20,7 +20,6 @@ cesarean_delivery <- read_csv("~/Desktop/Cesarean Delivery - All (%) 2020-2022 -
 cesarean_delivery
 ```
 
-
 ```{r, echo = FALSE, results='hide', message = FALSE}
 #loading in info to draw US states for geom_polygon
 library(maps)
@@ -44,7 +43,6 @@ c_delivery <- as_tibble(cesarean_delivery) |>
 # See what the state (State) levels look like in c_delivery
 unique(c_delivery$State)
 ```
-
 
 ```{r, echo = FALSE, results='hide'}
 # Matching the key values
@@ -83,7 +81,6 @@ c_delivery <- c_delivery |>
 c_delivery
 ```
 
-
 ```{r, echo = FALSE, results='hide'}
 # Merging for static
 c_del_polygon <- c_delivery |>
@@ -93,7 +90,6 @@ c_del_polygon <- c_delivery |>
   right_join(states_polygon, by = c("State" = "region"))
 c_del_polygon
 ```
-
 
 ```{r, echo = FALSE, results='hide'}
 #Merging for interactive
@@ -106,8 +102,8 @@ c_del_sf_1 <- states_sf |>
   left_join(temp, by = c("name" = "State"))
 ```
 
-
 # Average Percent Cesarian Deliveries By State 2020-2022 (static plot)
+
 ```{r, echo = FALSE}
 library(ggplot2)
 c_del_polygon |>
@@ -118,12 +114,13 @@ c_del_polygon |>
    theme_void() +  
    scale_fill_viridis() 
 ```
-This graph is a map of the continental United States color coded with state-level data of the average percent of deliveries which were cesarean (c-sections) in the years 2020-2022, aggregated from county-level data. The average percent of deliveries which were cesarean varies from approximately 24% to 38%. The graph highlights that the South tends to have higher rates of cesarian deliveries, especially Louisiana and Mississippi, while the West and upper-western Midwest tend to have lower rates of cesarian sections. 
+
+This graph is a map of the continental United States color coded with state-level data of the average percent of deliveries which were cesarean (c-sections) in the years 2020-2022, aggregated from county-level data. The average percent of deliveries which were cesarean varies from approximately 24% to 38%. The graph highlights that the South tends to have higher rates of cesarian deliveries, especially Louisiana and Mississippi, while the West and upper-western Midwest tend to have lower rates of cesarian sections.
 
 \np
 
-
 # Average Percent Cesarian Deliveries By State 2020-2022 (interactive plot)
+
 ```{r, echo = FALSE, warning = FALSE}
  c_del_sf_1 <- c_del_sf_1 |>
   mutate(labels = str_c(name, ": ", mean_c_section_delivery, "% Cesarian Deliveries 2020-2022"))
@@ -162,6 +159,7 @@ leaflet(c_del_sf_1) |>
 \np
 
 # Average County Urban-Rural Code by State (static plot)
+
 ```{r, echo = FALSE, results='hide'}
 table(c_del_polygon$mean_urban_rural)
 ```
@@ -176,11 +174,12 @@ c_del_polygon |>
    scale_fill_viridis(discrete = TRUE) 
 ```
 
-This graph is a map of the continental US color-coded at the state-level by the mean county urban-rural code. The mean county urban-rural code ranges from 2 (most urban) to 6 (most rural). States on the east coast have the lowest urban-rural code, meaning that the average of state's counties' urban-rural codes is the most urban. States in the South and on the west coast are next-most urban. The states that are the most rural are North Dakota, South Dakota, Montana, and Wyoming. 
+This graph is a map of the continental US color-coded at the state-level by the mean county urban-rural code. The mean county urban-rural code ranges from 2 (most urban) to 6 (most rural). States on the east coast have the lowest urban-rural code, meaning that the average of state's counties' urban-rural codes is the most urban. States in the South and on the west coast are next-most urban. The states that are the most rural are North Dakota, South Dakota, Montana, and Wyoming.
 
 \np
 
 # Average County Urban-Rural Code by State (interactive plot)
+
 ```{r, echo = FALSE, results = 'hide'}
  c_del_sf_1 <- c_del_sf_1 |>
   mutate(urban_rural_cat = as.factor(mean_urban_rural),
@@ -224,5 +223,3 @@ leaflet(c_del_sf_1) |>
     position = "bottomleft"
   )
 ```
-
-

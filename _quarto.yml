@@ -10,8 +10,8 @@ website:
         text: Home
       - href: mp_1.qmd
         text: Mapping C-Sections
-      - href: mp_2.qmd
-        text: Boston Marathon Over Time
+      - href: mp_4.qmd
+        text: Quran and Bible
 
 format:
   html:
