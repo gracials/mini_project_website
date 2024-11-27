@@ -11,7 +11,7 @@ website:
       - href: mp_1.qmd
         text: Mapping C-Sections
       - href: mp_4.qmd
-        text: Quran and Bible
+        text: Textual Analysis, Quran & Bible
 
 format:
   html:

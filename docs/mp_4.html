@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -97,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./mp_4.html" rel="" target="" aria-current="page">
- <span class="menu-text">Quran and Bible</span></a>
+ <span class="menu-text">Textual Analysis, Quran &amp; Bible</span></a>
   </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
@@ -115,14 +149,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#a-note-on-translation" id="toc-a-note-on-translation" class="nav-link" data-scroll-target="#a-note-on-translation">A note on translation</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
+  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data sources</a></li>
+  <li><a href="#sources-for-information-on-the-quran-and-the-bible" id="toc-sources-for-information-on-the-quran-and-the-bible" class="nav-link" data-scroll-target="#sources-for-information-on-the-quran-and-the-bible">Sources for information on the Quran and the Bible:</a></li>
+  </ul></li>
   <li><a href="#special-symbols" id="toc-special-symbols" class="nav-link" data-scroll-target="#special-symbols">Special Symbols</a></li>
   <li><a href="#dialogue" id="toc-dialogue" class="nav-link" data-scroll-target="#dialogue">Dialogue</a></li>
   <li><a href="#the-divine" id="toc-the-divine" class="nav-link" data-scroll-target="#the-divine">The Divine</a></li>
   <li><a href="#most-common-words" id="toc-most-common-words" class="nav-link" data-scroll-target="#most-common-words">Most common words</a></li>
   <li><a href="#positive-vs.-negative-sentiment-analysis" id="toc-positive-vs.-negative-sentiment-analysis" class="nav-link" data-scroll-target="#positive-vs.-negative-sentiment-analysis">Positive vs.&nbsp;Negative Sentiment Analysis</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  <li><a href="#sourcesfurther-reading" id="toc-sourcesfurther-reading" class="nav-link" data-scroll-target="#sourcesfurther-reading">Sources/Further Reading</a></li>
   </ul>
 </nav>
     </div>
@@ -149,15 +188,46 @@ ul.task-list li input[type="checkbox"] {
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>How does the form and style of different holy books differ?</p>
-<p>This page seeks to answer this question through an analysis of the textual similarities and differences between the Quran and the KJV Bible. While one can engage–and certainly many have—in comparative <em>literary</em> analyses between these two texts, tracking key style patterns through textual quantifications and visualization opens up possibilities for new and different insights.</p>
-<p>The Holy Quran is the central holy text of Islam, while the Bible is the central holy text Christianity. The Quran was originally written in Arabic and the Bible in Hebrew (Old Testament) and Greek (New Testament). A small portion of the Old Testament was written in Biblical Aramaic. As such, it is worth noting that any textual analysis of these texts is a textual analysis of translations, wherein notes on form and style are notes on both the heart of the text and the given translation.</p>
-<p>The Quran and the Bible have a lot in common, including shared stories and moral teachings, and assertion of a monotheistic god. They also have some clear differences: the Quran is much shorter at 6,236 ayahs (verses) while the King James Version of the Bible has 31,102 verses; the Quran is believed to have been revealed and recorded within a short frame of time, while the writing of the Bible occurred across centuries by many different authors;and the Quran is more lyrical and repetitious, while the Bible places more emphasis on storytelling. These differences represent but a sample of the ways in which these two texts can and have been contrasted. In my text analysis, I seek to identify other ways of comparing these two holy books, first with an an ayah/verse-level analysis and through word-level analysis.</p>
-<p>Data sources: <a href="https://www.kaggle.com/datasets/imrankhan197/the-quran-dataset">The Quran Dataset on Kaggle</a> and <a href="https://www.kaggle.com/datasets/oswinrh/bible?select=t_kjv.csv">Bible Corpus on Kaggle</a></p>
+<p>This page seeks to answer this question through an analysis of the textual similarities and differences between the Quran and the King James Version Bible. While one can engage–and certainly many have—in comparative <em>literary</em> analyses between these two texts, tracking key style patterns through textual quantifications and visualization opens up possibilities for new and different insights.</p>
+<section id="a-note-on-translation" class="level3">
+<h3 class="anchored" data-anchor-id="a-note-on-translation">A note on translation</h3>
+<p>The Holy Quran is the central holy text of Islam, while the Bible is the central holy text of Christianity. The Quran was originally written in Arabic and the Bible in Hebrew (Old Testament) and Greek (New Testament). A small portion of the Old Testament was written in Biblical Aramaic. As such, it is worth noting that any textual analysis of these texts is an analysis of translations, wherein notes on form and style refer to both the “heart” of the text and to the translation at hand.</p>
+</section>
+<section id="background" class="level3">
+<h3 class="anchored" data-anchor-id="background">Background</h3>
+<p>The Quran and the Bible have a lot in common, including shared stories and moral teachings, and assertion of a monotheistic god. They also have some clear differences: the Quran is much shorter at 6,236 ayahs (verses) while the King James Version of the Bible has 31,102 verses; the Quran is believed to have been revealed and recorded within a short frame of time, while the writing of the Bible occurred across centuries by many different authors;and the Quran is more lyrical and repetitious, while the Bible places more emphasis on storytelling. These differences represent but a sample of the ways in which the two texts can and have been contrasted. In my text analysis, I seek to identify other ways of comparing these two holy books. I begin with an ayah/verse-level analysis and then transition to a word-level analysis.</p>
+</section>
+<section id="data-sources" class="level3">
+<h3 class="anchored" data-anchor-id="data-sources">Data sources</h3>
+<p><a href="https://www.kaggle.com/datasets/imrankhan197/the-quran-dataset">The Quran Dataset on Kaggle</a> and <a href="https://www.kaggle.com/datasets/oswinrh/bible?select=t_kjv.csv">Bible Corpus on Kaggle</a></p>
+</section>
+<section id="sources-for-information-on-the-quran-and-the-bible" class="level3">
+<h3 class="anchored" data-anchor-id="sources-for-information-on-the-quran-and-the-bible">Sources for information on the Quran and the Bible:</h3>
+<ul>
+<li><a href="https://www.iis.ac.uk/media/r53hhyp4/introductory_quran-19729986.pdf">“Introductory Notes on the Qur’an”</a></li>
+<li><a href="https://www.biblegateway.com/learn/bible-101/original-language-of-the-bible/">“Original Languages of the Bible”</a></li>
+<li><a href="https://www.cambridge.org/core/books/abs/new-cambridge-history-of-the-bible/languages-of-the-old-testament/E04B54E7DB694A8ADFBB0C5CB381A83D">“The languages of the Old Testement”</a></li>
+<li><a href="https://aboutislam.net/reading-islam/understanding-islam/where-does-the-bible-agree-with-the-quran/">“Where Does the Bible Agree with the Quran”</a></li>
+<li><a href="https://www.thelastdialogue.org/article/bible-vs-quran-similarities-and-differences/">“Bible vs Quran: Bible, Quran, Christianity &amp; Islam: Similarities and Differences”</a></li>
+</ul>
+</section>
 </section>
 <section id="special-symbols" class="level2">
 <h2 class="anchored" data-anchor-id="special-symbols">Special Symbols</h2>
 <p>In the text of the Quran, these symbols appear semi-regularly: ˹ ˺. They do not appear in the KJV Bible.</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a table with the counts, totals, and proportions of times in which ˹ ˺ appear in an ayah or verse. </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>holy_books <span class="sc">|&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(title) <span class="sc">|&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">sum</span>(<span class="fu">str_detect</span>(text, <span class="st">"˹[A-Za-z ]+˺"</span>)),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">total =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">symbol_count =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">proportion =</span> symbol_count<span class="sc">/</span>total) <span class="sc">|&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"Holy Books"</span> <span class="ot">=</span> title, </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Symbol Count"</span> <span class="ot">=</span> symbol_count,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">Total =</span> total,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">Proportion =</span> proportion) <span class="sc">|&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <thead>
@@ -187,6 +257,20 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>In fact, over half of the ayahs in the Quran include this symbol. We can take a closer look at what kinds of phrases are bracketed in by these symbols:</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a table to further investigate the kinds of words and phrases that are typically within ˹ ˺. </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>quran <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(text, <span class="st">"˹[A-Za-z ]+˺"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(surah_chapter, ayah_verse, text) <span class="sc">|&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">surah_chapter =</span> surah_chapter, </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">ayah_verse =</span> ayah_verse, </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">text =</span> text, </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">symbol =</span> <span class="fu">str_extract</span>(text, <span class="st">"˹[A-Za-z ]+˺"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"Surah Number"</span> <span class="ot">=</span> surah_chapter,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Ayah Number"</span> <span class="ot">=</span> ayah_verse,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Ayah Text"</span> <span class="ot">=</span> text, </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Symbol Text"</span> <span class="ot">=</span> symbol) <span class="sc">|&gt;</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
@@ -269,12 +353,24 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p>It is unclear to me exactly what this symbol is intended to indicate as these symbols do not appear in the original Arabic of the Quran or in typical English translations. Generally, they seem to perhaps correlate with instances in which those words contained in the brackets might be emphasized.</p>
-<p>Given that this symbol does not appear in most translations of the Quran, it is not necessarily a crucial point of analysis in comparing and contrasting the Quran with the KJV Bible. It does, however, raise an important point about symbols. In the original writings of the Quran and in many translations, the text contains symbols which give instructions to the reader. This is a major difference between the Quran and the Bible, as the Bible does not contain these types of symbols.</p>
+<p>Given that this symbol does not appear in most translations of the Quran, it is not necessarily a crucial point of analysis in comparing and contrasting the Quran with the KJV Bible. It does, however, raise an important point about symbols. In the original writings of the Quran and in many translations since, the text contains symbols which give instructions to the reader, such as a symbol indicating that the reader must not stop or a sign indicating that the reader should perform sajda, or prostration <a href="https://instituteoflinguists.com/rules-signs-and-symbols-in-the-quran/">(“Rules, Signs, and Symbols in the Quran”)</a>. This is a major difference between the Quran and the Bible, as the Bible does not contain these types of symbols.</p>
 </section>
 <section id="dialogue" class="level2">
 <h2 class="anchored" data-anchor-id="dialogue">Dialogue</h2>
 <p>How often does dialogue appear in these two Holy Books? We can first asses this through counts and proportions of instances in which quotation marks (” “) appear.</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a table to show the counts, totals, and proportions of ayahs/verses in which quotation marks appear.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>holy_books <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(title)<span class="sc">|&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">sum</span>(<span class="fu">str_detect</span>(text, <span class="st">"</span><span class="sc">\\\"</span><span class="st">.+</span><span class="sc">\\\"</span><span class="st">"</span>)),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">total  =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">quote_count =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">proportion =</span> quote_count<span class="sc">/</span>total) <span class="sc">|&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Title =</span> title, </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Quotation Count"</span> <span class="ot">=</span> quote_count,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">Total =</span> total,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">Proportion =</span> proportion) <span class="sc">|&gt;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <thead>
@@ -307,6 +403,18 @@ ul.task-list li input[type="checkbox"] {
 <p>In modern, English translations, however, it is fairly common to include quotation marks as means to indicate speech and dialogue.</p>
 <p>In order to include instances of potential dialogue in the KJV Bible, we will also add in our count instances in which the words “said,” “says,” “tells,” “told,” “asks,” or “asked” are used. Certainly there are other words which indicate dialogue and likely there are instances in which these words are connect to phrases which aren’t dialogue, however, using these words in addition to quotation marks gives us a rough estimate of the use of dialogic phrases.</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a table to show the counts, totals, and proportions of dialogic phrases in ayahs/verses. </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>holy_books <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(title)<span class="sc">|&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">sum</span>(<span class="fu">str_detect</span>(text, <span class="st">"</span><span class="sc">\\\"</span><span class="st">.+</span><span class="sc">\\\"</span><span class="st">|said|says|tells|told|asks|asked"</span>)),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">total  =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">dialogue_count =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">proportion =</span> dialogue_count<span class="sc">/</span>total) <span class="sc">|&gt;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Title =</span> title, </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Dialogue Count"</span> <span class="ot">=</span> dialogue_count,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">Total =</span> total,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">Proportion =</span> proportion) <span class="sc">|&gt;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <thead>
@@ -338,8 +446,20 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="the-divine" class="level2">
 <h2 class="anchored" data-anchor-id="the-divine">The Divine</h2>
-<p>How do the two books compare when it comes to references to the Divine? In the Quran, the Divine is most often referred to as “Allah,” which is Arabic for “God.” In this translation of the Quran, Allah/God is also referred to as “Lord,” “God,” and “Almighty.” In the KJV Bible, the Divine is referred to as “God,” “LORD,” “Lord,” and “Almighty.” Because God is triune in the Bible (God, Jesus, and Holy Spirit), “Christ,” “Jesus,” and the “Holy Spirit” can also be considered references to the Divine in the KJV Bible. The Christ/Jesus figure appears in The Quran as a prophet, but the Quranic Christ/Jesus is not Divine.</p>
+<p>How do the two books compare when it comes to references to the Divine? In the Quran, the Divine is most often referred to as “Allah,” which is Arabic for “God.” In this translation of the Quran, Allah/God is also referred to as “Lord,” “God,” and “Almighty.” In the KJV Bible, the Divine is referred to as “God,” “LORD,” “Lord,” and “Almighty.” Because God is triune in the Bible (God, Jesus, and Holy Spirit), “Christ,” “Jesus,” and the “Holy Spirit” can also be considered references to the Divine in the KJV Bible. (The Christ/Jesus figure appears in The Quran as a prophet, but the Quranic Christ/Jesus is not Divine.)</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a table of counts, totals, and proportions of times in which the Divine is mentioned (not including "Jesus," "Christ," and "Holy Spirit")</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>holy_books <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(title) <span class="sc">|&gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">sum</span>(<span class="fu">str_detect</span>(text, <span class="st">"Allah|LORD|Lord|God|Almighty"</span>)),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">total =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">divine_count =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">proportion =</span> divine_count<span class="sc">/</span>total) <span class="sc">|&gt;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Title =</span> title, </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Divine Count without Jesus/Christ/Holy Spirit"</span> <span class="ot">=</span> divine_count,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">Total =</span> total, </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">Proportion =</span> proportion) <span class="sc">|&gt;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
@@ -374,6 +494,18 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a table of counts, totals, and proportions of times in which the Divine is mentioned (including "Jesus," "Christ," and "Holy Spirit")</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>holy_books <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(title) <span class="sc">|&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">sum</span>(<span class="fu">str_detect</span>(text, <span class="st">"Allah|LORD|Lord|God|Almighty|Jesus|Christ|Holy Spirit"</span>)),</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">total =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">divine_count =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">proportion =</span> divine_count<span class="sc">/</span>total) <span class="sc">|&gt;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Title =</span> title, </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Divine Count including Jesus/Christ/Holy Spirit"</span> <span class="ot">=</span> divine_count,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">Total =</span> total, </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">Proportion =</span> proportion) <span class="sc">|&gt;</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
@@ -411,14 +543,36 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="most-common-words" class="level2">
 <h2 class="anchored" data-anchor-id="most-common-words">Most common words</h2>
-<p>Wordclouds of the most common words in the Quran and in the Bible indicate how prominant the Divine figure is within the text.</p>
+<p>Wordclouds of the most common words in the Quran and in the Bible further indicate how prominent the Divine figure is within both texts, but particularly within the Quran. Other important words in the Quran include “people” and “prophet.” Frequently used words in the Bible which aren’t necessarily a direct reference to the Divine include “thou,” “thy” and “ye”—all words which reference a “you.”</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># making a wordcloud of the top (non stop) words in the Quran based on size. </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>quran_no_stop_df <span class="ot">&lt;-</span> quran_no_stop <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">80</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>()</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>color_assignment <span class="ot">&lt;-</span> <span class="fu">brewer.pal</span>(<span class="dv">9</span>, <span class="st">"Pastel1"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>quran_wordcloud <span class="ot">&lt;-</span> <span class="fu">wordcloud2</span>(</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  quran_no_stop_df, </span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">size =</span> <span class="dv">1</span>, </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">shape =</span> <span class="st">'circle'</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">minSize =</span> <span class="dv">1</span>, </span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> color_assignment)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>quran_wordcloud</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="wordcloud2 html-widget html-fill-item" id="htmlwidget-0386bc42c75069df8cc5" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-0386bc42c75069df8cc5">{"x":{"word":["allah","lord","people","prophet","surely","day","believers","earth","allah’s","punishment","disbelievers","messenger","truth","worship","reward","heavens","evil","life","moses","revealed","signs","mindful","true","fear","faith","created","remember","fire","mercy","hearts","judgment","torment","knowledge","land","wills","quran","messengers","book","merciful","god","revelations","angels","wrongdoers","children","follow","bring","hell","knowing","deeds","night","deny","forgiving","guide","women","guided","prayer","gods","replied","servants","wise","return","call","almighty","world","wealth","death","seek","sign","time","news","lord’s","abraham","gardens","pharaoh","associate","humanity","set","witness","righteous","disbelieve"],"freq":[2600,900,704,586,561,474,383,347,288,267,258,237,233,223,220,216,199,177,176,171,169,168,167,158,156,155,155,154,151,149,149,149,148,137,137,136,131,126,126,120,119,118,117,113,110,109,109,109,100,99,98,96,96,95,94,93,92,92,92,92,91,89,88,87,86,84,82,81,81,79,78,77,77,77,74,74,74,73,72,71],"fontFamily":"Segoe UI","fontWeight":"bold","color":["#FBB4AE","#B3CDE3","#CCEBC5","#DECBE4","#FED9A6","#FFFFCC","#E5D8BD","#FDDAEC","#F2F2F2"],"minSize":1,"weightFactor":0.06923076923076923,"backgroundColor":"white","gridSize":0,"minRotation":-0.7853981633974483,"maxRotation":0.7853981633974483,"shuffle":true,"rotateRatio":0.4,"shape":"circle","ellipticity":0.65,"figBase64":null,"hover":null},"evals":[],"jsHooks":{"render":[{"code":"function(el,x){\n                        console.log(123);\n                        if(!iii){\n                          window.location.reload();\n                          iii = False;\n\n                        }\n  }","data":null}]}}</script>
+<div class="wordcloud2 html-widget html-fill-item" id="htmlwidget-d2e24e1dd2d1a4eb15ea" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-d2e24e1dd2d1a4eb15ea">{"x":{"word":["allah","lord","people","prophet","surely","day","believers","earth","allah’s","punishment","disbelievers","messenger","truth","worship","reward","heavens","evil","life","moses","revealed","signs","mindful","true","fear","faith","created","remember","fire","mercy","hearts","judgment","torment","knowledge","land","wills","quran","messengers","book","merciful","god","revelations","angels","wrongdoers","children","follow","bring","hell","knowing","deeds","night","deny","forgiving","guide","women","guided","prayer","gods","replied","servants","wise","return","call","almighty","world","wealth","death","seek","sign","time","news","lord’s","abraham","gardens","pharaoh","associate","humanity","set","witness","righteous","disbelieve"],"freq":[2600,900,704,586,561,474,383,347,288,267,258,237,233,223,220,216,199,177,176,171,169,168,167,158,156,155,155,154,151,149,149,149,148,137,137,136,131,126,126,120,119,118,117,113,110,109,109,109,100,99,98,96,96,95,94,93,92,92,92,92,91,89,88,87,86,84,82,81,81,79,78,77,77,77,74,74,74,73,72,71],"fontFamily":"Segoe UI","fontWeight":"bold","color":["#FBB4AE","#B3CDE3","#CCEBC5","#DECBE4","#FED9A6","#FFFFCC","#E5D8BD","#FDDAEC","#F2F2F2"],"minSize":1,"weightFactor":0.06923076923076923,"backgroundColor":"white","gridSize":0,"minRotation":-0.7853981633974483,"maxRotation":0.7853981633974483,"shuffle":true,"rotateRatio":0.4,"shape":"circle","ellipticity":0.65,"figBase64":null,"hover":null},"evals":[],"jsHooks":{"render":[{"code":"function(el,x){\n                        console.log(123);\n                        if(!iii){\n                          window.location.reload();\n                          iii = False;\n\n                        }\n  }","data":null}]}}</script>
 </div>
 </div>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># making a wordcloud of the top (non stop) words in the Bible based on size. </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wordcloud</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">words =</span> bible_no_stop<span class="sc">$</span>word, </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">freq =</span> bible_no_stop<span class="sc">$</span>n, </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">max.words =</span> <span class="dv">80</span>, </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">random.order =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">rot.per =</span> <span class="fl">0.35</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">colors =</span> <span class="fu">brewer.pal</span>(<span class="dv">9</span>, <span class="st">"Paired"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="mp_4_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -426,18 +580,59 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="positive-vs.-negative-sentiment-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="positive-vs.-negative-sentiment-analysis">Positive vs.&nbsp;Negative Sentiment Analysis</h2>
-<p>A visual trajectory of the sentiment as depicted through the use of words positively and negatively associated demonstrates that while the sentiment is up and down in both texts, the KJV Bible has very drastic ups and downs in the beginning parts (the Old Testement) and mellows out as it goes. The Quran too has its highest postivites and lowest negatives at the beginning, but these are much less drastic. As the Quran progresses, the text is largely neutral.</p>
+<p>A visual trajectory of textual positive-negative sentiment demonstrates that these two texts have differing trajectories.</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a plot of sentiment trajectory over the Bible using the "bing" lexicon</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>bible_plot <span class="ot">&lt;-</span> holy_books_words <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(title <span class="sc">==</span> <span class="st">"King James Version Bible"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(bing_sentiments) <span class="sc">|&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(title, <span class="at">index =</span> book, sentiment) <span class="sc">|&gt;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> sentiment, <span class="at">values_from =</span> n, <span class="at">values_fill =</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sentiment =</span> positive <span class="sc">-</span> negative) <span class="sc">|&gt;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> index, <span class="at">y =</span> sentiment)) <span class="sc">+</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>) <span class="sc">+</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">250</span>, <span class="dv">225</span>) <span class="sc">+</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Books of the King James Version Bible"</span>,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a plot of sentiment trajectory over the Quran using the "bing" lexicon</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>quran_plot <span class="ot">&lt;-</span> holy_books_words <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(title <span class="sc">==</span> <span class="st">"The Holy Quran"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(bing_sentiments) <span class="sc">|&gt;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(title, <span class="at">index =</span> surah_chapter, sentiment) <span class="sc">|&gt;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> sentiment, <span class="at">values_from =</span> n, <span class="at">values_fill =</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sentiment =</span> positive <span class="sc">-</span> negative) <span class="sc">|&gt;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> index, <span class="at">y =</span> sentiment)) <span class="sc">+</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>, <span class="at">fill =</span> <span class="st">"orange"</span>) <span class="sc">+</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">250</span>, <span class="dv">225</span>) <span class="sc">+</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Surahs of the The Holy Quran"</span>,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Sentiment"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># putting the two plots together</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>title <span class="ot">&lt;-</span> <span class="fu">ggdraw</span>() <span class="sc">+</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">draw_label</span>(<span class="st">"Sentiment Trajectory: The Holy Quran and the KJV Bible"</span>, <span class="at">fontface =</span> <span class="st">'bold'</span>, <span class="at">size =</span> <span class="dv">16</span>, <span class="at">x =</span> <span class="fl">0.5</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>holy_book_plots <span class="ot">&lt;-</span><span class="fu">plot_grid</span>(quran_plot, </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>                            bible_plot, </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>                            <span class="at">nrow =</span> <span class="dv">1</span>, </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>                            <span class="at">align =</span> <span class="st">"h"</span>, </span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>                            <span class="at">axis =</span> <span class="st">"t"</span>)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_grid</span>(title, holy_book_plots, <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">rel_heights =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="mp_4_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+<p><img src="mp_4_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>The Quran’s most drastic sentiments are in the beginning. As the Quran progresses, it stays fairly centered at a net sentiment score of 0 and the variation in sentiment score gradually becomes smaller and smaller.</p>
+<p>In comparison to the Quran, the KJV Bible has much more drastic sentiment scores, with the most extreme scores of the KJV Bible nearly three times as large as the most extreme sentiment scores in the Quran. Interestingly, the trajectory of the Bible seems to correspond with differences in sentiment based on the deliniation of Old vs.&nbsp;New Testament: the Old Testament of the KJV is constitutes books one through 39, and this is where we see very drastic variety in sentiment; the New Testament, constituting books 39 through 66 are distinctly positive in nature.</p>
+<p>Overall, the Quran’s net surah sentiment appears to be very consistent and neutral throughout, while the KJV Bible’s net chapter sentiment appears to begin drastically up and down, and end on a definitely positive note.</p>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-</section>
-<section id="sourcesfurther-reading" class="level2">
-<h2 class="anchored" data-anchor-id="sourcesfurther-reading">Sources/Further Reading</h2>
+<p>Based on this brief textual comparison of the Quran and the KJV Bible, it is clear that though these two texts may share key similarities, they also have interesting, diverging stylistic characteristics from the use of symbols to the trajectory of the text’s sentiment.</p>
+<p>An analysis such as this one does not constitute a comprehensive investigation of stylistic difference. Rather, it is meant to demonstrate that textual-level differences within religious texts can be made quantifiable and visual in compelling and creative ways. Using data science to investigate these holy books on the textual level pushes us to be imaginative about how we can make sense of religious texts in comparison with each other and how we might build upon initial exploration like this in order to find new angles to old analysis.</p>
 
 
 </section>
