@@ -367,7 +367,7 @@ The Quran's most drastic sentiments are in the beginning. As the Quran progresse
 
 The KJV Bible has drastic sentiment scores in the first half, with much greater drastic negatives than positives. Interestingly, the sentiment trajectory of the Bible corresponds with the delineation of Old vs. New Testament: the Old Testament of the KJV is constitutes books one through 39, and this is where we see very drastic variety in sentiment, particularly in numerous books with a large net negative; the New Testament, constituting books 39 through 66 are all positive except the very first, though it is worth noting that these positive sentiment scores are not as large as many of the negative sentiment scores of the Old Testament.
 
-Overall, the Quran's net surah sentiment appears to trend towards net neutral, while the KJV Bible's net chapter sentiment appears to begin drastically up and very down, and end on a definitely positive note.
+Overall, the Quran's net surah sentiment appears to trend towards net neutral, while the KJV Bible's net book sentiment appears to begin drastically up and very down, and end on a definitely positive note.
 
 ## Conclusion
 
