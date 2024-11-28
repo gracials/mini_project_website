@@ -70,33 +70,36 @@ holy_books <- quran |>
 holy_books
 ```
 
-
-
 ## Introduction
-How does the form and style of different holy books differ? 
 
-This page seeks to answer this question through an analysis of the textual similarities and differences between the Quran and the King James Version Bible. While one can engage--and certainly many have---in comparative *literary* analyses between these two texts, tracking key style patterns through textual quantifications and visualization opens up possibilities for new and different insights. 
+How does the form and style of different holy books differ?
+
+This page seeks to answer this question through an analysis of the textual similarities and differences between the Quran and the King James Version Bible. While one can engage--and certainly many have---in comparative *literary* analyses between these two texts, tracking key style patterns through textual quantifications and visualization opens up possibilities for new and different insights.
 
 ### A note on translation
-The Holy Quran is the central holy text of Islam, while the Bible is the central holy text of Christianity. The Quran was originally written in Arabic and the Bible in Hebrew (Old Testament) and Greek (New Testament). A small portion of the Old Testament was written in Biblical Aramaic. As such, it is worth noting that any textual analysis of these texts is an analysis of translations, wherein notes on form and style refer to both the "heart" of the text and to the translation at hand. 
 
+The Holy Quran is the central holy text of Islam, while the Bible is the central holy text of Christianity. The Quran was originally written in Arabic and the Bible in Hebrew (Old Testament) and Greek (New Testament). A small portion of the Old Testament was written in Biblical Aramaic. As such, it is worth noting that any textual analysis of these texts is an analysis of translations, wherein notes on form and style refer to both the "heart" of the text and to the translation at hand.
 
 ### Background
-The Quran and the Bible have a lot in common, including shared stories and moral teachings, and assertion of a monotheistic god. They also have some clear differences: the Quran is much shorter at 6,236 ayahs (verses) while the King James Version of the Bible has 31,102 verses; the Quran is believed to have been revealed and recorded within a short frame of time, while the writing of the Bible occurred across centuries by many different authors;and the Quran is more lyrical and repetitious, while the Bible places more emphasis on storytelling. These differences represent but a sample of the ways in which the two texts can and have been contrasted. In my text analysis, I seek to identify other ways of comparing these two holy books. I begin with an ayah/verse-level analysis and then transition to a word-level analysis. 
+
+The Quran and the Bible have a lot in common, including shared stories and moral teachings, and assertion of a monotheistic god. They also have some clear differences: the Quran is much shorter at 6,236 ayahs (verses) while the King James Version of the Bible has 31,102 verses; the Quran is believed to have been revealed and recorded within a short frame of time, while the writing of the Bible occurred across centuries by many different authors;and the Quran is more lyrical and repetitious, while the Bible places more emphasis on storytelling. These differences represent but a sample of the ways in which the two texts can and have been contrasted. In my text analysis, I seek to identify other ways of comparing these two holy books. I begin with an ayah/verse-level analysis and then transition to a word-level analysis.
 
 ### Data sources
+
 [The Quran Dataset on Kaggle](https://www.kaggle.com/datasets/imrankhan197/the-quran-dataset) and [Bible Corpus on Kaggle](https://www.kaggle.com/datasets/oswinrh/bible?select=t_kjv.csv)
 
 ### Sources for information on the Quran and the Bible:
-- ["Introductory Notes on the Qur'an"](https://www.iis.ac.uk/media/r53hhyp4/introductory_quran-19729986.pdf)
-- ["Original Languages of the Bible"](https://www.biblegateway.com/learn/bible-101/original-language-of-the-bible/)
-- ["The languages of the Old Testement"](https://www.cambridge.org/core/books/abs/new-cambridge-history-of-the-bible/languages-of-the-old-testament/E04B54E7DB694A8ADFBB0C5CB381A83D)
-- ["Where Does the Bible Agree with the Quran"](https://aboutislam.net/reading-islam/understanding-islam/where-does-the-bible-agree-with-the-quran/)
-- ["Bible vs Quran: Bible, Quran, Christianity & Islam: Similarities and Differences"](https://www.thelastdialogue.org/article/bible-vs-quran-similarities-and-differences/)
 
+-   ["Introductory Notes on the Qur'an"](https://www.iis.ac.uk/media/r53hhyp4/introductory_quran-19729986.pdf)
+-   ["Original Languages of the Bible"](https://www.biblegateway.com/learn/bible-101/original-language-of-the-bible/)
+-   ["The languages of the Old Testement"](https://www.cambridge.org/core/books/abs/new-cambridge-history-of-the-bible/languages-of-the-old-testament/E04B54E7DB694A8ADFBB0C5CB381A83D)
+-   ["Where Does the Bible Agree with the Quran"](https://aboutislam.net/reading-islam/understanding-islam/where-does-the-bible-agree-with-the-quran/)
+-   ["Bible vs Quran: Bible, Quran, Christianity & Islam: Similarities and Differences"](https://www.thelastdialogue.org/article/bible-vs-quran-similarities-and-differences/)
 
 ## Special Symbols
-In the text of the Quran, these symbols appear semi-regularly: ˹ ˺. They do not appear in the KJV Bible. 
+
+In the text of the Quran, these symbols appear semi-regularly: ˹ ˺. They do not appear in the KJV Bible.
+
 ```{r}
 # creating a table with the counts, totals, and proportions of times in which ˹ ˺ appear in an ayah or verse. 
 holy_books |>
@@ -113,6 +116,7 @@ holy_books |>
 ```
 
 In fact, over half of the ayahs in the Quran include this symbol. We can take a closer look at what kinds of phrases are bracketed in by these symbols:
+
 ```{r}
 # creating a table to further investigate the kinds of words and phrases that are typically within ˹ ˺. 
 quran |>
@@ -130,16 +134,14 @@ quran |>
   kable()
 ```
 
-It is unclear to me exactly what this symbol is intended to indicate as these symbols do not appear in the original Arabic of the Quran or in typical English translations. Generally, they seem to perhaps correlate with instances in which those words contained in the brackets might be emphasized. 
+It is unclear to me exactly what this symbol is intended to indicate as these symbols do not appear in the original Arabic of the Quran or in typical English translations. Generally, they seem to perhaps correlate with instances in which those words contained in the brackets might be emphasized.
 
-Given that this symbol does not appear in most translations of the Quran, it is not necessarily a crucial point of analysis in comparing and contrasting the Quran with the KJV Bible. It does, however, raise an important point about symbols. In the original writings of the Quran and in many translations since, the text contains symbols which give instructions to the reader, such as a symbol indicating that the reader must not stop or a sign indicating that the reader should perform sajda, or prostration [("Rules, Signs, and Symbols in the Quran")](https://instituteoflinguists.com/rules-signs-and-symbols-in-the-quran/).  This is a major difference between the Quran and the Bible, as the Bible does not contain these types of symbols. 
-
-
-
-
+Given that this symbol does not appear in most translations of the Quran, it is not necessarily a crucial point of analysis in comparing and contrasting the Quran with the KJV Bible. It does, however, raise an important point about symbols. In the original writings of the Quran and in many translations since, the text contains symbols which give instructions to the reader, such as a symbol indicating that the reader must not stop or a sign indicating that the reader should perform sajda, or prostration [("Rules, Signs, and Symbols in the Quran")](https://instituteoflinguists.com/rules-signs-and-symbols-in-the-quran/). This is a major difference between the Quran and the Bible, as the Bible does not contain these types of symbols.
 
 ## Dialogue
-How often does dialogue appear in these two Holy Books? We can first asses this through counts and proportions of instances in which quotation marks (" ") appear. 
+
+How often does dialogue appear in these two Holy Books? We can first asses this through counts and proportions of instances in which quotation marks (" ") appear.
+
 ```{r}
 # creating a table to show the counts, totals, and proportions of ayahs/verses in which quotation marks appear.
 holy_books |>
@@ -154,13 +156,15 @@ holy_books |>
          Proportion = proportion) |>
   kable()
 ```
-Interestingly, the KJV Bible does not use any quotation marks, while nearly a fifth of the verses in the Quran contain quotations. 
 
-It is worth noting that many modern translations of the Bible do include quotation marks. The original text of the Bible did not use quotations nor did the original Arabic of the Quran. 
+Interestingly, the KJV Bible does not use any quotation marks, while nearly a fifth of the verses in the Quran contain quotations.
 
-In modern, English translations, however, it is fairly common to include quotation marks as means to indicate speech and dialogue. 
+It is worth noting that many modern translations of the Bible do include quotation marks. The original text of the Bible did not use quotations nor did the original Arabic of the Quran.
 
-In order to include instances of potential dialogue in the KJV Bible, we will also add in our count instances in which the words "said," "says," "tells," "told," "asks," or "asked" are used. Certainly there are other words which indicate dialogue and likely there are instances in which these words are connect to phrases which aren't dialogue, however, using these words in addition to quotation marks gives us a rough estimate of the use of dialogic phrases. 
+In modern, English translations, however, it is fairly common to include quotation marks as means to indicate speech and dialogue.
+
+In order to include instances of potential dialogue in the KJV Bible, we will also add in our count instances in which the words "said," "says," "tells," "told," "asks," or "asked" are used. Certainly there are other words which indicate dialogue and likely there are instances in which these words are connect to phrases which aren't dialogue, however, using these words in addition to quotation marks gives us a rough estimate of the use of dialogic phrases.
+
 ```{r}
 # creating a table to show the counts, totals, and proportions of dialogic phrases in ayahs/verses. 
 holy_books |>
@@ -176,10 +180,11 @@ holy_books |>
   kable()
 ```
 
-Once words associated with dialogue are included in the count, we can see that about an 8th of the verses in the Bible contain dialogic phrases while a little over a 5th of the ayahs in the Quran contain do. Evidently, dialogue and direct conversation plays a larger role in the Quran than in the Bible. 
+Once words associated with dialogue are included in the count, we can see that about an 8th of the verses in the Bible contain dialogic phrases while a little over a 5th of the ayahs in the Quran contain do. Evidently, dialogue and direct conversation plays a larger role in the Quran than in the Bible.
 
-## The Divine 
-How do the two books compare when it comes to references to the Divine? In the Quran, the Divine is most often referred to as "Allah," which is Arabic for "God." In this translation of the Quran, Allah/God is also referred to as "Lord," "God," and "Almighty." In the KJV Bible, the Divine is referred to as "God," "LORD," "Lord," and "Almighty." Because God is triune in the Bible (God, Jesus, and Holy Spirit), "Christ," "Jesus," and the "Holy Spirit" can also be considered references to the Divine in the KJV Bible. (The Christ/Jesus figure appears in The Quran as a prophet, but the Quranic Christ/Jesus is not Divine.) 
+## The Divine
+
+How do the two books compare when it comes to references to the Divine? In the Quran, the Divine is most often referred to as "Allah," which is Arabic for "God." In this translation of the Quran, Allah/God is also referred to as "Lord," "God," and "Almighty." In the KJV Bible, the Divine is referred to as "God," "LORD," "Lord," and "Almighty." Because God is triune in the Bible (God, Jesus, and Holy Spirit), "Christ," "Jesus," and the "Holy Spirit" can also be considered references to the Divine in the KJV Bible. (The Christ/Jesus figure appears in The Quran as a prophet, but the Quranic Christ/Jesus is not Divine.)
 
 ```{r}
 # a table of counts, totals, and proportions of times in which the Divine is mentioned (not including "Jesus," "Christ," and "Holy Spirit")
@@ -211,11 +216,12 @@ holy_books |>
   kable()
 ```
 
-The Divine is referred to in approximately 43% of ayahs in the Quran and about 31% of the verses in the KJV Bible once the triune God is taken into account. These percentages aren't drastically different, but nevertheless, it is clear that the Quran includes more verses with direct reference to God. 
-
+The Divine is referred to in approximately 43% of ayahs in the Quran and about 31% of the verses in the KJV Bible once the triune God is taken into account. These percentages aren't drastically different, but nevertheless, it is clear that the Quran includes more verses with direct reference to God.
 
 ## Most common words
-Wordclouds of the most common words in the Quran and in the Bible further indicate how prominent the Divine figure is within both texts, but particularly within the Quran. Other important words in the Quran include "people" and "prophet." Frequently used words in the Bible which aren't necessarily a direct reference to the Divine include "thou," "thy" and "ye"---all words which reference a "you." 
+
+Wordclouds of the most common words in the Quran and in the Bible further indicate how prominent the Divine figure is within both texts, but particularly within the Quran. Other important words in the Quran include "people" and "prophet." Frequently used words in the Bible which aren't necessarily a direct reference to the Divine include "thou," "thy" and "ye"---all words which reference a "you."
+
 ```{r, echo = FALSE, results ='hide'}
 # creating a dataset broken up by individual word 
 holy_books_words <- holy_books |>
@@ -223,8 +229,8 @@ holy_books_words <- holy_books |>
   unnest_tokens(output = word, input = text)
 
 holy_books_words
-``` 
- 
+```
+
 ```{r, echo = FALSE, results = 'hide', warning = FALSE, message = FALSE}
 # creating a dataset of the inividual words in the Quran with the stop words removed.  
 quran_no_stop <- holy_books_words |>
@@ -253,7 +259,7 @@ quran_wordcloud <- wordcloud2(
 quran_wordcloud
 
 ```
- 
+
 ```{r, echo = FALSE, results = 'hide', warning = FALSE, message = FALSE}
 # creating a dataset of the individual words in the Bible with the stop words removed.  
 bible_no_stop <- holy_books_words |>
@@ -263,7 +269,7 @@ bible_no_stop <- holy_books_words |>
   arrange(desc(n))
 bible_no_stop
 ```
- 
+
 ```{r, echo = FALSE, results = 'hide', warning = FALSE, message = FALSE}
 #for some reason this worked in my console, but showed up as a blank space when rendered. I tried a lot of different things and my theory is that something about wordcloud2 doesn't like that I am trying to make two different word clouds on the same html. 
 #making a wordcloud of the top (non stop) words in the Bible based on size. 
@@ -291,16 +297,24 @@ wordcloud(
   colors = brewer.pal(9, "Paired"))
 ```
 
+## Positive vs. Negative Sentiment Analysis
 
+A visual trajectory of textual positive-negative sentiment demonstrates that these two texts have differing trajectories.
 
-
-## Positive vs. Negative Sentiment Analysis 
-A visual trajectory of textual positive-negative sentiment demonstrates that these two texts have differing trajectories. 
 ```{r, echo = FALSE, results = 'hide', warning = FALSE, message = FALSE}
 # pulling in the "bing" lexicon
 get_sentiments(lexicon = "bing")
 
 bing_sentiments <- get_sentiments(lexicon = "bing")
+```
+
+```{r, echo = FALSE, results = 'hide'}
+holy_books_words |>
+  group_by(title) |>
+  count() |>
+  rename(Title = title,
+         "Number of Words" = n) |>
+  kable()
 ```
 
 ```{r, results = 'hide', warning = FALSE, message = FALSE}
@@ -310,12 +324,14 @@ bible_plot <- holy_books_words |>
   inner_join(bing_sentiments) |>
   count(title, index = book, sentiment) |>
   pivot_wider(names_from = sentiment, values_from = n, values_fill = 0) |>
-  mutate(sentiment = positive - negative) |>
+  mutate(sentiment = (positive - negative)/9.068679) |>  
   ggplot(aes(x = index, y = sentiment)) +
+    ylim(-100, 100)+
     geom_col(show.legend = FALSE, fill = "skyblue") +
-    ylim(-250, 225) +
   labs(x = "Books of the King James Version Bible",
        y = "")
+
+# The Quran has 150405 words while the KJV Bible has 789668 words. This makes the Bible approximately 5.25 times larger (word-wise) than the Quran. Additionally, the words of KJV Bible are spread across a variable (books) with 66 levels, while the words of the Quran are spread across a variable (chapters) with 114 levels, making the unit spread of the Bible 1.73 times smaller. In effort to create proportional scales, I divide the sentiment score of the KJV Bible by 9.068679 (5.250287 * 1.727273).
 ```
 
 ```{r, results = 'hide', warning = FALSE, message = FALSE}
@@ -327,12 +343,12 @@ quran_plot <- holy_books_words |>
   pivot_wider(names_from = sentiment, values_from = n, values_fill = 0) |>
   mutate(sentiment = positive - negative) |>
   ggplot(aes(x = index, y = sentiment)) +
+    ylim(-100, 100)+
     geom_col(show.legend = FALSE, fill = "orange") +
-    ylim(-250, 225) +
   labs(x = "Surahs of the The Holy Quran",
        y = "Sentiment")
 ```
- 
+
 ```{r, warning = FALSE, message = FALSE}
 # putting the two plots together
 title <- ggdraw() + 
@@ -347,15 +363,14 @@ holy_book_plots <-plot_grid(quran_plot,
 plot_grid(title, holy_book_plots, ncol = 1, rel_heights = c(0.1, 1))
 ```
 
-The Quran's most drastic sentiments are in the beginning. As the Quran progresses, it stays fairly centered at a net sentiment score of 0 and the variation in sentiment score gradually becomes smaller and smaller. 
+The Quran's most drastic sentiments are in the beginning. As the Quran progresses, the sentiment continues to bounce between positive and negative, but the variation in sentiment score gradually becomes smaller and smaller as it centers around zero.
 
-In comparison to the Quran, the KJV Bible has much more drastic sentiment scores, with the most extreme scores of the KJV Bible nearly three times as large as the most extreme sentiment scores in the Quran. Interestingly, the trajectory of the Bible seems to correspond with differences in sentiment based on the deliniation of Old vs. New Testament: the Old Testament of the KJV is constitutes books one through 39, and this is where we see very drastic variety in sentiment; the New Testament, constituting books 39 through 66 are distinctly positive in nature.
+The KJV Bible has drastic sentiment scores in the first half, with much greater drastic negatives than positives. Interestingly, the sentiment trajectory of the Bible corresponds with the delineation of Old vs. New Testament: the Old Testament of the KJV is constitutes books one through 39, and this is where we see very drastic variety in sentiment, particularly in numerous books with a large net negative; the New Testament, constituting books 39 through 66 are all positive except the very first, though it is worth noting that these positive sentiment scores are not as large as many of the negative sentiment scores of the Old Testament.
 
-Overall, the Quran's net surah sentiment appears to be very consistent and neutral throughout, while the KJV Bible's net chapter sentiment appears to begin drastically up and down, and end on a definitely positive note. 
+Overall, the Quran's net surah sentiment appears to trend towards net neutral, while the KJV Bible's net chapter sentiment appears to begin drastically up and very down, and end on a definitely positive note.
 
- 
 ## Conclusion
-Based on this brief textual comparison of the Quran and the KJV Bible, it is clear that though these two texts may share key similarities, they also have interesting, diverging stylistic characteristics from the use of symbols to the trajectory of the text's sentiment. 
 
-An analysis such as this one does not constitute a comprehensive investigation of stylistic difference. Rather, it is meant to demonstrate that textual-level differences within religious texts can be made quantifiable and visual in compelling and creative ways. Using data science to investigate these holy books on the textual level pushes us to be imaginative about how we can make sense of religious texts in comparison with each other and how we might build upon initial exploration like this in order to find new angles to old analysis. 
+Based on this brief textual comparison of the Quran and the KJV Bible, it is clear that though these two texts may share key similarities, they also have interesting, diverging stylistic characteristics from the use of symbols to the trajectory of the text's sentiment.
 
+An analysis such as this one does not constitute a comprehensive investigation of stylistic difference. Rather, it is meant to demonstrate that textual-level differences within religious texts can be made quantifiable and visual in compelling and creative ways. Using data science to investigate these holy books on the textual level pushes us to be imaginative about how we can make sense of religious texts in comparison with each other and how we might build upon initial exploration like this in order to find new angles to old analysis.
